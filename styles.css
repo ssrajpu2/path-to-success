@@ -29,9 +29,17 @@ body {
   line-height: 1.5;
 }
 
+/* HEADER */
+header {
+  margin-bottom: 0;
+}
+
 h1, h2 {
   font-family: 'Kavoon', cursive;
-  color: var(--white);
+}
+
+h2 {
+  color: var(--purple); /* default purple for section headings */
 }
 
 h1 {
@@ -39,27 +47,8 @@ h1 {
   text-align: center;
   padding: 1rem;
   background: var(--purple);
-}
-
-h2 {
-  font-size: 2em;
-  margin-bottom: 0.5rem;
-}
-
-h3 {
-  font-size: 1.5em;
-  margin: 1rem 0 0.5rem;
-  color: var(--dark);
-}
-
-h4 {
-  font-size: 1.15em;
-  margin-bottom: 0.25rem;
-  color: var(--dark);
-}
-
-p {
-  margin-bottom: 1rem;
+  color: var(--white);
+  margin: 0;
 }
 
 header p {
@@ -75,6 +64,7 @@ nav {
   background: var(--yellow);
   padding: 1rem;
   text-align: center;
+  margin-top: 0;
 }
 
 nav h2 {
@@ -100,49 +90,57 @@ nav ul li a {
   color: var(--purple);
   font-weight: bold;
   text-decoration: none;
-  border: 2px solid var(--purple);
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 nav ul li a:hover {
   background: var(--lavender);
+  color: var(--white);
 }
 
 /* SERVICES SECTION */
 #services {
-  background: var(--white);
+  background: var(--purple);
   padding: 1rem;
+  margin-bottom: 0; /* ✅ no extra space below purple */
 }
 
-#services h2 {
-  color: var(--purple);
+#services h2,
+#services h3 {
+  color: var(--white); /* white headings in services section */
 }
 
+/* Individual cards */
 .card {
   display: flex;
   align-items: flex-start;
-  background: var(--lavender);
+  background: var(--white);
   margin: 0.75rem 0;
   padding: 1rem;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .card img {
   width: 50px;
   height: 50px;
   margin-right: 1rem;
+  flex-shrink: 0;
 }
 
 /* WHY CHOOSE US */
 #choose {
-  background: var(--purple);
+  background: var(--pink);
   color: var(--white);
   padding: 1rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0; /* ✅ stick directly to pricing */
 }
 
 #choose h2 {
-  color: var(--white);
   margin-bottom: 1rem;
+  color: var(--white);
 }
 
 .features {
@@ -153,40 +151,59 @@ nav ul li a:hover {
 
 .features li {
   list-style: none;
-  background: var(--white);
-  color: var(--dark);
   font-weight: bold;
   text-align: center;
   padding: 1rem;
   border-radius: 6px;
+  color: var(--white);
 }
 
-/* PRICING TABLES */
+.features li:nth-child(1) { background: var(--teal); }
+.features li:nth-child(2) { background: var(--lavender); }
+.features li:nth-child(3) { background: var(--yellow); color: var(--dark); }
+.features li:nth-child(4) { background: var(--white); color: var(--dark); }
+
+/* PRICING SECTION */
 #pricing {
-  background: var(--white);
+  background: var(--purple);   /* ✅ purple block */
   padding: 1rem;
+  margin-top: 0;               /* ✅ flush with pink */
+  margin-bottom: 0;
 }
 
 #pricing h2 {
-  color: var(--purple);
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+#pricing h3 {
+  color: var(--white);
+  margin-top: 1rem;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
+  background: var(--white);
+  border: 2px solid var(--yellow);   /* outer border yellow */
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 th, td {
-  border: 1px solid var(--dark);
+  border: 1px solid var(--yellow);   /* ✅ inner lines yellow */
   padding: 0.5rem;
   text-align: center;
 }
 
 th {
-  background: var(--yellow);
+  background: var(--yellow);         /* header yellow */
   color: var(--dark);
+  font-weight: bold;
 }
+
 
 /* CALL TO ACTION */
 #contact {
@@ -194,6 +211,8 @@ th {
   color: var(--white);
   padding: 1.5rem;
   text-align: center;
+  margin-top: 0;     /* ✅ no gap above */
+  margin-bottom: 0;  /* ✅ no gap below */
 }
 
 #contact h2 {
@@ -212,7 +231,8 @@ th {
   font-weight: bold;
   text-decoration: none;
   border-radius: 6px;
-  border: 2px solid var(--dark);
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .btn:hover {
@@ -222,14 +242,278 @@ th {
 
 /* FOOTER */
 footer {
-  background: var(--purple);
-  color: var(--white);
+  background: var(--white);
+  color: var(--dark);
   text-align: center;
   padding: 1rem;
   font-size: 0.9em;
 }
 
 footer a {
+  color: var(--lavender);
+  text-decoration: underline;
+}
+/* IMPORTED FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kavoon&display=swap');
+
+/* CSS RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ROOT VARIABLES */
+:root {
+  --teal: #4CA7C0;
+  --purple: #484FB7;
+  --lavender: #6B8FE7;
+  --yellow: #E9BB57;
+  --pink: #D9526F;
+  --dark: #1E1E1E;
+  --white: #ffffff;
+}
+
+/* GLOBAL STYLES (mobile first/small) */
+body {
+  font-family: 'Inter', sans-serif;
+  max-width: 450px;
+  margin: auto;
+  background: var(--lavender);
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+/* HEADER */
+header {
+  margin-bottom: 0;
+}
+
+h1, h2 {
+  font-family: 'Kavoon', cursive;
+}
+
+h2 {
+  color: var(--purple); /* default purple for section headings */
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  padding: 1rem;
+  background: var(--purple);
   color: var(--white);
+  margin: 0;
+}
+
+header p {
+  text-align: center;
+  font-style: italic;
+  background: var(--purple);
+  color: var(--white);
+  padding-bottom: 1rem;
+}
+
+/* NAVIGATION */
+nav {
+  background: var(--yellow);
+  padding: 1rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+nav h2 {
+  font-size: 1.5em;
+  font-style: italic;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0.5rem 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 0.75rem;
+  background: var(--white);
+  color: var(--purple);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+nav ul li a:hover {
+  background: var(--lavender);
+  color: var(--white);
+}
+
+/* SERVICES SECTION */
+#services {
+  background: var(--purple);
+  padding: 1rem;
+  margin-bottom: 0;
+}
+
+#services h2{
+    color: var(--white); 
+}
+#services h3 {
+  color: var(--yellow); 
+}
+
+/* Individual cards */
+.card h4 {
+  color: var(--purple);   /* ✅ make all h4 headings lavender */
+}
+.card {
+  display: flex;
+  align-items: flex-start;
+  background: var(--white);
+  margin: 0.75rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+/* WHY CHOOSE US */
+#choose {
+  background: var(--pink);
+  color: var(--white);
+  padding: 1rem;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 0; /* ✅ stick directly to pricing */
+}
+
+#choose h2 {
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.features li {
+  list-style: none;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 6px;
+  color: var(--white);
+}
+
+.features li:nth-child(1) { background: var(--teal); color: var(--dark); }
+.features li:nth-child(2) { background: var(--lavender);color: var(--dark);  }
+.features li:nth-child(3) { background: var(--yellow); color: var(--dark); }
+.features li:nth-child(4) { background: var(--white); color: var(--dark); }
+
+/* PRICING SECTION */
+#pricing {
+  background: var(--purple);   
+  padding: 1rem;
+  margin-top: 0;               
+  margin-bottom: 0;
+}
+
+#pricing h2 {
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+#pricing h3 {
+  color: var(--yellow);
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: var(--white);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+th, td {
+  border: 1px solid var(--dark);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+th {
+  background: var(--yellow);
+  color: var(--dark);
+  font-weight: bold;
+}
+
+
+/* CALL TO ACTION */
+#contact {
+  background: var(--pink);
+  color: var(--white);
+  padding: 1.5rem;
+  text-align: center;
+  margin: 0;
+}
+
+#contact h2 {
+  margin-bottom: 0.5rem;
+  color: var(--white);   
+  text-align: center;
+}
+
+#contact p {
+  margin-bottom: 1rem;
+  text-align: left;      
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background: var(--white);
+  color: var(--dark);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 2px solid var(--dark);     
+  box-shadow: 3px 3px 0 var(--dark);  
+}
+
+.btn:hover {
+  background: var(--yellow);
+  color: var(--dark);
+}
+
+/* FOOTER */
+footer {
+  background: var(--purple); 
+  color: var(--white);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9em;
+  margin-top: 0; 
+}
+
+footer a {
+  color: var(--white); 
   text-decoration: underline;
 }
