@@ -186,20 +186,19 @@ table {
   border-collapse: collapse;
   margin: 1rem 0;
   background: var(--white);
-  border: 2px solid var(--yellow);   /* outer border yellow */
-  border-radius: 6px;
+  border: 2px solid var(--yellow);   
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 th, td {
-  border: 1px solid var(--yellow);   /* ✅ inner lines yellow */
+  border: 1px solid var(--yellow);   
   padding: 0.5rem;
   text-align: center;
 }
 
 th {
-  background: var(--yellow);         /* header yellow */
+  background: var(--yellow);       
   color: var(--dark);
   font-weight: bold;
 }
